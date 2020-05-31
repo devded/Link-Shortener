@@ -1,6 +1,7 @@
 function urlShort(long_url) {
     const api_key = 'a54ee10c4381830ff49168c7c3e0d45ca0da5';
-    fetch('https://cutt.ly/api/api.php?key=' + api_key + '&short=' + long_url)
+    const cors_api_host = 'https://cors-anywhere.herokuapp.com/';
+    fetch(cors_api_host+'https://cutt.ly/api/api.php?key=' + api_key + '&short=' + long_url)
         .then(response => response.json())
         .then(data => setValue(data.url.shortLink));
 }
